@@ -1,6 +1,9 @@
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "../components/header/header";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getAllVideos } from "../redux/reducers/videoSlice";
 
 export enum RoutesList {
     AllVideos = "/",
@@ -10,7 +13,17 @@ export enum RoutesList {
     Default = "*",
 }
 
+
+
 const Router = () => {
+  
+const dispatch = useDispatch()
+
+useEffect(() => {
+  dispatch(getAllVideos());
+}, []); // Передаем пустой массив зависимостей
+
+
     return (
       <BrowserRouter>
         <Routes>
