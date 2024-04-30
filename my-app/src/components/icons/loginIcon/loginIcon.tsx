@@ -1,6 +1,10 @@
-export const LoginIcon = () => {
+type LoginIconProps = {
+    onClick?:()=> void
+}
+
+export const LoginIcon = (props:LoginIconProps) => {
     return (
-        <div>
+        <div onClick={props.onClick}>
             <svg width="31" height="32" viewBox="0 0 31 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_d_27_14094)">
 <rect x="2" y="2" width="23" height="24" rx="5" fill="white"/>

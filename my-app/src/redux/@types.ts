@@ -1,49 +1,65 @@
 export interface Video {
-    kind: string;
-    etag: string;
-    id: string;
-    snippet: {
-      publishedAt: string;
-      channelId: string;
-      title: string;
-      description: string;
-      thumbnails: {
-        default: {
-          url: string;
-          width: number;
-          height: number;
-        };
-        medium: {
-          url: string;
-          width: number;
-          height: number;
-        };
-        high: {
-          url: string;
-          width: number;
-          height: number;
-        };
-        standard: {
-          url: string;
-          width: number;
-          height: number;
-        };
-        maxres: {
-          url: string;
-          width: number;
-          height: number;
-        };
+  kind: string;
+  etag: string;
+  id: string;
+  snippet: {
+    publishedAt: string;
+    channelId: string;
+    title: string;
+    description: string;
+    thumbnails: {
+      default: {
+        url: string;
+        width: number;
+        height: number;
+      };
+      medium: {
+        url: string;
+        width: number;
+        height: number;
+      };
+      high: {
+        url: string;
+        width: number;
+        height: number;
+      };
+      standard: {
+        url: string;
+        width: number;
+        height: number;
+      };
+      maxres: {
+        url: string;
+        width: number;
+        height: number;
       };
     };
-  }
-  
-  export interface VideoListResponse {
-    TODO: string;
-    kind: string;
-    etag: string;
-    pageInfo: {
-      totalResults: number;
-      resultsPerPage: number;
+    channelTitle: string;
+    tags: string[];
+    categoryId: string;
+    liveBroadcastContent: string;
+    localized: {
+      title: string;
+      description: string;
     };
-    items: Video[];
-  }
+    defaultAudioLanguage: string;
+  };
+  statistics: {
+    viewCount: string;
+    likeCount: string;
+    dislikeCount: string;
+    favoriteCount: string;
+    commentCount: string;
+  };
+}
+
+export interface VideoListResponse {
+  TODO: string;
+  kind: string;
+  etag: string;
+  pageInfo: {
+    totalResults: number;
+    resultsPerPage: number;
+  };
+  items: Video[];
+}

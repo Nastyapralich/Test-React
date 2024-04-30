@@ -33,16 +33,16 @@ export const SelectedVideo = () => {
             <div className={classNames(style.iconsContainer)}>
               <ul className={classNames(style.iconsListContainer)}>
                 <li className={classNames(style.iconsContainerListItem)}>
-                  <EyeIcon /> 1000
+                  <EyeIcon /> {selectedVideo.statistics.viewCount}
                 </li>
                 <li className={classNames(style.iconsContainerListItem)}>
-                  <LikeIcon /> 680
+                  <LikeIcon /> {selectedVideo.statistics.likeCount}
                 </li>
                 <li className={classNames(style.iconsContainerListItem)}>
-                  <DislikeIcon /> 320
+                  <DislikeIcon /> {selectedVideo.statistics.dislikeCount}
                 </li>
                 <li className={classNames(style.iconsContainerListItem)}>
-                  <SaveIcon /> 250
+                  <SaveIcon /> {selectedVideo.statistics.favoriteCount}
                 </li>
               </ul>
             </div>

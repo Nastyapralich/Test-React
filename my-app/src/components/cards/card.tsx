@@ -24,16 +24,16 @@ export const Card = (props: Video) => {
     </div>
     <div className={classNames(style.iconsContainer)}>
       <ul className={classNames(style.iconsListContainer)}>
-        <li className={classNames(style.iconsContainerListItem)}><EyeIcon /> 1000</li>
-        <li className={classNames(style.iconsContainerListItem)}><LikeIcon /> 680</li>
-        <li className={classNames(style.iconsContainerListItem)}><DislikeIcon /> 320</li>
-        <li className={classNames(style.iconsContainerListItem)}><SaveIcon /> 250</li>
+        <li className={classNames(style.iconsContainerListItem)}><EyeIcon /> {props.statistics.viewCount}</li>
+        <li className={classNames(style.iconsContainerListItem)}><LikeIcon /> {props.statistics.likeCount}</li>
+        <li className={classNames(style.iconsContainerListItem)}><DislikeIcon /> {props.statistics.dislikeCount}</li>
+        <li className={classNames(style.iconsContainerListItem)}><SaveIcon /> {props.statistics.favoriteCount}</li>
       </ul>
     </div>
     <div className={classNames(style.cardText)}>
        <p>{props.snippet.title}</p> 
     </div>
-    <div className={classNames(style.cardButtom)}>
+    <div className={classNames(style.cardButton)}>
         <Button title={"More..."} onClick={onMoreClick}/>
     </div>
   </div>;

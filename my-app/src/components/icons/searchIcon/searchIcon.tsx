@@ -1,8 +1,12 @@
 import style from "./searchIcon.module.scss";
 
-export const SearchIcon = () => {
+type SearchIconProps ={
+  onClick?: () => void
+}
+
+export const SearchIcon = (props: SearchIconProps) => {
   return (
-    <div>
+    <div onClick={props.onClick}>
       <svg
         width="24"
         height="24"

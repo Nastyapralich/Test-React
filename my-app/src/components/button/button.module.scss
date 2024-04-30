@@ -1,3 +1,5 @@
+
+@import '../../fonts/fonts.scss'; 
 .container {
     width: 120px;
     height: 32px;
@@ -6,6 +8,7 @@
     align-items: center;
     box-shadow: 2px 0 4px 0 #2f80ed;
     background-color: #2F80ED;
+    cursor: pointer;
     &:hover{
         background-color: #5EA2FF;
     }
@@ -18,5 +21,7 @@
         font-size: 12px;
         text-align: center;
         color: #fff;
+        font-family: "Roboto", sans-serif;
+
     }
 }
