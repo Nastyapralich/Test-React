@@ -1,0 +1,22 @@
+.container {
+    width: 120px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 0 4px 0 #2f80ed;
+    background-color: #2F80ED;
+    &:hover{
+        background-color: #5EA2FF;
+    }
+    &:disabled{
+        background-color: #B1B1B1;
+    }
+
+    .butonText {
+        font-weight: 400;
+        font-size: 12px;
+        text-align: center;
+        color: #fff;
+    }
+}

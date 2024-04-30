@@ -1,0 +1,21 @@
+.container {
+    width: 100%;
+
+    .headerWrapper {
+        max-width: 1140px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-evenly;
+        .searchWrapper{
+            width: 540px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+        }
+    }
+    .userWrapper{
+          display: flex;
+          align-items: center;
+    }
+}
