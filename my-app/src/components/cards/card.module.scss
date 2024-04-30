@@ -1,0 +1,50 @@
+.container {
+    border-radius: 5px;
+    width: 263px;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e5e5e5;
+
+    .cardImg {
+        margin-bottom: 21px;
+        width: 223px;
+        text-align: center;
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .iconsContainer {
+        padding: 0;
+        // width: 202px;
+
+        .iconsListContainer {
+            padding: 0;
+            display: flex;
+            list-style: none;
+            text-decoration: none;
+            justify-content: space-between;
+            align-items: center;
+
+            .iconsContainerListItem {
+                margin-right: 17px;
+                font-weight: 400;
+                font-size: 10px;
+                color: #000;
+            }
+        }
+    }
+
+    .cardText {
+        p {
+            font-weight: 700;
+            font-size: 20px;
+            text-align: right;
+            color: #4f4f4f;
+        }
+    }
+}

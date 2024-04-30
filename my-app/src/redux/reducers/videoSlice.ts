@@ -23,4 +23,8 @@ const VideoSlice = createSlice({
 
 export const { getAllVideos, setAllVideos } = VideoSlice.actions;
 
+export const VideoSelectors = {
+    getAllVideo: (state: RootState) => state.video.videoList
+}
+
 export default VideoSlice.reducer;

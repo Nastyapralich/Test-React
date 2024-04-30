@@ -1,0 +1,40 @@
+.container{
+    max-width: 1165px;
+    margin: 0 auto;
+    margin-top: 50px;
+    box-shadow: 5px 10px 10px 0 rgba(47, 128, 237, 0.25);
+    background-color: #e5e5e5;
+    display: flex;
+    justify-content: space-between;
+    .imgContainer{
+        width: 436px;
+        img{
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    .descriptionText{
+        width: 436px;
+        .iconsContainer {
+            padding: 0;
+            // width: 202px;
+    
+            .iconsListContainer {
+                padding: 0;
+                display: flex;
+                list-style: none;
+                text-decoration: none;
+                justify-content: space-between;
+                align-items: center;
+    
+                .iconsContainerListItem {
+                    margin-right: 17px;
+                    font-weight: 400;
+                    font-size: 10px;
+                    color: #000;
+                }
+            }
+        }
+    }
+
+}
