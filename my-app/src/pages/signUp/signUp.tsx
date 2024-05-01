@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import styles from './signUp.module.scss';
+import { FormContainer } from '../../components/formContainer/formContainer';
+import classNames from 'classnames';
+import { useNavigate } from 'react-router-dom';
+import { RoutesList } from '../router';
 
 export const SignUp = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleNameChange = (e: { target: { value: React.SetStateAction<string>; }; }) => {
     setName(e.target.value);
@@ -39,11 +44,11 @@ export const SignUp = () => {
   };
 
   return (
-    <div className={styles.signUpContainer}>
-      <h2 className={styles.signUpTitle}>Sign Up</h2>
-      <form className={styles.signUpForm} onSubmit={handleSignUp}>
-        <div className={styles.formGroup}>
-          <label htmlFor="name" className={styles.label}>
+    <div className={classNames(styles.signUpContainer)}>
+      <FormContainer title={'Registration'}>
+      <form className={classNames(styles.signUpForm)} onSubmit={handleSignUp}>
+        <div className={classNames(styles.formGroup)}>
+          <label htmlFor="name">
             Name:
           </label>
           <input type="text" id="name" className={styles.input} value={name} onChange={handleNameChange} />
@@ -60,10 +65,15 @@ export const SignUp = () => {
           </label>
           <input type="password" id="password" className={styles.input} value={password} onChange={handlePasswordChange} />
         </div>
-        <button type="submit" className={styles.submitButton}>
-          Sign Up
-        </button>
+        <div className={classNames(styles.buttonGroup)}>
+            <button className={classNames(styles.registrationButton)} onClick={()=> navigate(RoutesList.SignIn)}>Login </button>
+            <button type="submit" className={classNames(styles.submitButton)}>
+              Registration
+            </button>
+          </div>
       </form>
+      </FormContainer>
+    
     </div>
   );
 };

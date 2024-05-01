@@ -7,9 +7,25 @@
     margin: 0 auto;
    
 } 
-.buttonMore{
-margin:0 auto;
-margin-top: 30px;
-display: flex;
-justify-content: center;
-    }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+      
+      .pagination button {
+        margin: 0 5px;
+        padding: 5px 10px;
+        background-color: #f2f2f2;
+        border: none;
+        cursor: pointer;
+      }
+      
+      .pagination button:hover {
+        background-color: #e0e0e0;
+      }
+      
+      .pagination button.active {
+        background-color: #d3d3d3;
+      }

@@ -3,7 +3,8 @@ import style from './button.module.scss';
 
 type ButtonProps = {
     title: string,
-    onClick?: () => void
+    onClick?: () => void,
+    className? : string
 }
 
 const Button = (props: ButtonProps) =>{

@@ -1,0 +1,22 @@
+.container {
+    margin: 200px auto;
+    border-radius: 5px;
+    width: 344px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #e5e5e5;
+
+    .title {
+        font-weight: 700;
+        font-size: 18px;
+        color: #000;
+    }
+
+    .input {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+}
