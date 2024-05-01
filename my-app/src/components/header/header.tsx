@@ -8,13 +8,17 @@ import { SetStateAction, useEffect, useState } from "react";
 import { Filter } from "../filter/filter";
 import { Video } from "../../redux/@types";
 import { useDispatch, useSelector } from "react-redux";
-import { VideoSelectors, setAllVideos } from "../../redux/reducers/videoSlice";
+import { VideoSelectors, setAllVideos, setFilteredVideos } from "../../redux/reducers/videoSlice";
 import { RoutesList } from "../../pages/router";
 
 const Header = () => {
   const [isFilterOpen, setFilterOpen] = useState(false);
-  const [filteredVideoList, setFilteredVideoList] = useState<Video[]>();
-  const selectVideoList = useSelector(VideoSelectors.getAllVideo);
+  const [filteredVideoListByViews, setFilteredVideoListByVies] = useState<Video[]>();
+  const [filteredVideoListByDate, setFilteredVideoListByDate] = useState<Video[]>();
+  const [filteredVideoListByWord, setFilteredVideoListByWord] = useState<Video[]>();
+
+  const selectVideoList = useSelector(VideoSelectors.getAllVideo); //неотфильтрованный массив
+  const filteredVideos = useSelector(VideoSelectors.getFilteredVideos)
   const [name, setUserName] = useState("");
   const storedUser = localStorage.getItem('user');
   const [searchWord, setSearchWord] = useState("");
@@ -38,35 +42,38 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const onDateSort = () => {
-    const sortedList = [...selectVideoList].sort((a: Video, b: Video) => {
+    dispatch(setFilteredVideos(selectVideoList))
+    const sortedList = [...filteredVideos].sort((a: Video, b: Video) => {
       const dateA = new Date(a.snippet.publishedAt);
       const dateB = new Date(b.snippet.publishedAt);
       return dateA.getTime() - dateB.getTime();
     });
 
-    setFilteredVideoList(sortedList);
-    dispatch(setAllVideos(sortedList));
+    setFilteredVideoListByDate(sortedList);
+     filteredVideoListByDate && dispatch(setFilteredVideos(filteredVideoListByDate));
   };
 
   const onViewsSort = () => {
+    dispatch(setFilteredVideos(selectVideoList))
     const sortedList = [...selectVideoList].sort((a: Video, b: Video) => {
       const viewCountA = Number(a.statistics.viewCount);
       const viewCountB = Number(b.statistics.viewCount);
       return viewCountB - viewCountA;
     });
-    setFilteredVideoList(sortedList);
-    dispatch(setAllVideos(sortedList));
+    setFilteredVideoListByVies(sortedList);
+    filteredVideoListByViews && dispatch(setFilteredVideos(filteredVideoListByViews));
   };
 
 
   const filterVideos = () => {
+    dispatch(setFilteredVideos(selectVideoList))
     const filteredResults = selectVideoList.filter((item) => {
       const title = item.snippet.title;
       const lowerCasedTerm = searchWord.toLowerCase();
       return title.toLowerCase().includes(lowerCasedTerm);
     });
-    setFilteredVideoList(filteredResults);
-    filteredVideoList && dispatch(setAllVideos(filteredVideoList))
+    setFilteredVideoListByWord(filteredResults);
+    filteredVideoListByWord && dispatch(setFilteredVideos(filteredVideoListByWord))
   };
 
   return (

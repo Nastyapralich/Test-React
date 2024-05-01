@@ -9,9 +9,9 @@ import { useEffect, useState } from "react";
 import Button from "../../components/button/button";
 
 export const AllVideos = () => {
-  const selectVideoList = useSelector(VideoSelectors.getAllVideo);
+  const filteredVideos = useSelector(VideoSelectors.getFilteredVideos);
 
-  const [items, setItems] = useState(selectVideoList);
+  const [items, setItems] = useState(filteredVideos);
   const [limit, setLimit] = useState(10);
   const LIMIT = 10;
 
@@ -19,11 +19,15 @@ export const AllVideos = () => {
     setLimit((prevLimit) => prevLimit + LIMIT);
   };
 
+
+
+
   useEffect(() => {}, [limit]);
   return (
     <div>
       <div className={classNames(style.container)}>
-        {selectVideoList.slice(0, limit).map((el, index) => {
+        {filteredVideos.slice(0, limit).map((el, index) => {
+         
           return <Card key={el.id} {...el} />;
         })}
       </div>
